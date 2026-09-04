@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Erizopet: tienda online de erizos pigmeo africano y accesorios (ruedas, comida, hábitat y más)." />
+  <title>{% block titulo%} {% endblock%}</title>
+
+  <meta name="description" content="Erizopet: tienda online de erizos pigmeo africano y accesorios">
+
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css') }}">
+  
+
+  <link rel="stylesheet" href="{{url_for('static', filename='css/all.min.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+  <header class="site-header" id="site-header">
+    {% include 'components/navbar.html' %}
+  </header>
+
+  <main id="main">
+    <div id="overlay" class="overlay" hidden></div>
+    {% block contenido %}{% endblock %}
+  </main>
+  {% include 'components/footer.html' %}
+
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/all.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+ 
+
+ 
+</body>
+</html>

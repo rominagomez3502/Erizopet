@@ -1,0 +1,86 @@
+<nav class="top-nav" aria-label="Barra de navegación principal">
+    <div class="container nav__inner">
+      <!-- Logo SVG -->
+      <a class="logo" href="#inicio" aria-label="Erizopet — Inicio">
+        <!-- SVG logo (inline) -->
+        <svg class="logo__svg" viewBox="0 0 260 70" role="img" aria-label="Logo Erizopet">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#FFD600" />
+              <stop offset="1" stop-color="#FFB000" />
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#1B9CFC" />
+              <stop offset="1" stop-color="#7CFFCB" />
+            </linearGradient>
+          </defs>
+
+          <!-- Bolita -->
+          <circle cx="40" cy="35" r="18" fill="rgba(255,214,0,.18)" />
+          <circle cx="40" cy="35" r="9" fill="var(--color-secundario)" />
+
+          <!-- Texto -->
+          <text x="68" y="46"
+                font-size="44"
+                font-weight="900"
+                fill="url(#g1)"
+                font-family="system-ui, -apple-system, Segoe UI, Arial">
+            Erizopet
+          </text>
+
+          <!-- Detalle “patita” -->
+          <path d="M196 26c8 0 14 6 14 14s-6 14-14 14-14-6-14-14 6-14 14-14Z"
+                fill="rgba(27,156,252,.15)"/>
+          <path d="M194 39c3-4 9-4 12 0 0 0-2 7-6 7s-6-7-6-7Z"
+                fill="url(#g2)"/>
+        </svg>
+      </a>
+
+      <div class="nav__links" aria-label="Secciones">
+        <a class="nav__link is-active" href="#inicio">Inicio</a>
+        <a class="nav__link" href="#tienda">Tienda</a>
+        <a class="nav__link" href="#colores">Colores</a>
+        <a class="nav__link" href="#accesorios">Accesorios</a>
+        <a class="nav__link" href="#faq">FAQ</a>
+      </div>
+
+      <div class="nav__actions">
+        <button class="icon-btn" type="button" aria-label="Búsqueda (demo)" data-toast>
+          <span aria-hidden="true">🔎</span>
+        </button>
+
+        <a class="icon-btn cart-btn" href="#carrito" aria-label="Carrito (demo)">
+          <span aria-hidden="true">🛒</span>
+          <span class="cart-badge" aria-hidden="true">0</span>
+        </a>
+
+        <!-- Botones con iconos para modales -->
+        <button
+          class="btn btn--ghost"
+          type="button"
+          data-open="login"
+          aria-haspopup="dialog"
+          aria-controls="modalLogin"
+        >
+          <span class="btn__icon" aria-hidden="true">🔐</span>
+          Inicio de sesión
+        </button>
+
+        <button
+          class="btn btn--primary"
+          type="button"
+          data-open="register"
+          aria-haspopup="dialog"
+          aria-controls="modalRegister"
+        >
+          <span class="btn__icon" aria-hidden="true">📝</span>
+          Registro
+        </button>
+
+        <!-- Menú móvil -->
+        <button class="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" data-hamburger>
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
+    </div>
+  </nav>

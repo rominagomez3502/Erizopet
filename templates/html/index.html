@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Erizopet: tienda online de erizos pigmeo africano y accesorios (ruedas, comida, hábitat y más)." />
+  <title>Erizopet — Tienda Online de Erizos Pigmeo Africano</title>
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+  
+  <a class="skip-link" href="#inicio">Saltar al contenido</a>
+
+  <!-- NAV semántico -->
+  <nav class="top-nav" aria-label="Barra de navegación principal">
+    <div class="container nav__inner">
+      <!-- Logo SVG -->
+      <a class="logo" href="#inicio" aria-label="Erizopet — Inicio">
+        <!-- SVG logo (inline) -->
+        <svg class="logo__svg" viewBox="0 0 260 70" role="img" aria-label="Logo Erizopet">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#FFD600" />
+              <stop offset="1" stop-color="#FFB000" />
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#1B9CFC" />
+              <stop offset="1" stop-color="#7CFFCB" />
+            </linearGradient>
+          </defs>
+
+          <!-- Bolita -->
+          <circle cx="40" cy="35" r="18" fill="rgba(255,214,0,.18)" />
+          <circle cx="40" cy="35" r="9" fill="var(--color-secundario)" />
+
+          <!-- Texto -->
+          <text x="68" y="46"
+                font-size="44"
+                font-weight="900"
+                fill="url(#g1)"
+                font-family="system-ui, -apple-system, Segoe UI, Arial">
+            Erizopet
+          </text>
+
+          <!-- Detalle “patita” -->
+          <path d="M196 26c8 0 14 6 14 14s-6 14-14 14-14-6-14-14 6-14 14-14Z"
+                fill="rgba(27,156,252,.15)"/>
+          <path d="M194 39c3-4 9-4 12 0 0 0-2 7-6 7s-6-7-6-7Z"
+                fill="url(#g2)"/>
+        </svg>
+      </a>
+
+      <div class="nav__links" aria-label="Secciones">
+        <a class="nav__link is-active" href="#inicio">Inicio</a>
+        <a class="nav__link" href="#tienda">Tienda</a>
+        <a class="nav__link" href="#colores">Colores</a>
+        <a class="nav__link" href="#accesorios">Accesorios</a>
+        <a class="nav__link" href="#faq">FAQ</a>
+      </div>
+
+      <div class="nav__actions">
+        <button class="icon-btn" type="button" aria-label="Búsqueda (demo)" data-toast>
+          <span aria-hidden="true">🔎</span>
+        </button>
+
+        <a class="icon-btn cart-btn" href="#carrito" aria-label="Carrito (demo)">
+          <span aria-hidden="true">🛒</span>
+          <span class="cart-badge" aria-hidden="true">0</span>
+        </a>
+
+        <!-- Botones con iconos para modales -->
+        <button
+          class="btn btn--ghost"
+          type="button"
+          data-open="login"
+          aria-haspopup="dialog"
+          aria-controls="modalLogin"
+        >
+          <span class="btn__icon" aria-hidden="true">🔐</span>
+          Inicio de sesión
+        </button>
+
+        <button
+          class="btn btn--primary"
+          type="button"
+          data-open="register"
+          aria-haspopup="dialog"
+          aria-controls="modalRegister"
+        >
+          <span class="btn__icon" aria-hidden="true">📝</span>
+          Registro
+        </button>
+
+        <!-- Menú móvil -->
+        <button class="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" data-hamburger>
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- overlay modal (compartido) -->
+  <div id="modalOverlay" class="modal-overlay" hidden aria-hidden="true"></div>
+
+  <!-- MODAL LOGIN -->
+  <section id="modalLogin" class="modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle" hidden>
+    <div class="modal__panel" role="document">
+      <header class="modal__head">
+        <h2 id="loginTitle" class="modal__title">
+          🔐 Inicio de sesión
+        </h2>
+        <button class="modal__close" type="button" aria-label="Cerrar modal" data-close>
+          ✕
+        </button>
+      </header>
+
+      <form class="modal__form" id="formLogin" autocomplete="on">
+        <label class="field">
+          <span class="field__label">Email</span>
+          <span class="field__icon" aria-hidden="true">📧</span>
+          <input type="email" name="email" required placeholder="tucorreo@ejemplo.com" autocomplete="email" />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Contraseña</span>
+          <span class="field__icon" aria-hidden="true">🔑</span>
+          <input type="password" name="password" required placeholder="••••••••" autocomplete="current-password" />
+        </label>
+
+        <button class="btn btn--primary btn--full" type="submit">
+          Entrar <span aria-hidden="true">→</span>
+        </button>
+
+        <p class="modal__hint">
+          Demo UI: no hay validación real contra servidor.
+        </p>
+      </form>
+
+      <footer class="modal__foot">
+        <button type="button" class="btn btn--secondary btn--full" data-open="register">
+          📝 Crear cuenta
+        </button>
+      </footer>
+    </div>
+  </section>
+
+  <!-- MODAL REGISTER -->
+  <section id="modalRegister" class="modal" role="dialog" aria-modal="true" aria-labelledby="registerTitle" hidden>
+    <div class="modal__panel" role="document">
+      <header class="modal__head">
+        <h2 id="registerTitle" class="modal__title">
+          📝 Registro en Erizopet
+        </h2>
+        <button class="modal__close" type="button" aria-label="Cerrar modal" data-close>
+          ✕
+        </button>
+      </header>
+
+      <form class="modal__form" id="formRegister" autocomplete="on">
+        <label class="field">
+          <span class="field__label">Nombre</span>
+          <span class="field__icon" aria-hidden="true">👤</span>
+          <input type="text" name="name" required placeholder="Tu nombre" autocomplete="name" />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Email</span>
+          <span class="field__icon" aria-hidden="true">📧</span>
+          <input type="email" name="email" required placeholder="tucorreo@ejemplo.com" autocomplete="email" />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Contraseña</span>
+          <span class="field__icon" aria-hidden="true">🔒</span>
+          <input type="password" name="password" required placeholder="Crea una contraseña" autocomplete="new-password" />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Confirmar contraseña</span>
+          <span class="field__icon" aria-hidden="true">✅</span>
+          <input type="password" name="confirm" required placeholder="Repite la contraseña" autocomplete="new-password" />
+        </label>
+
+        <button class="btn btn--primary btn--full" type="submit">
+          Crear cuenta <span aria-hidden="true">→</span>
+        </button>
+
+        <p class="modal__hint">
+          Demo UI: no se envía información.
+        </p>
+      </form>
+
+      <footer class="modal__foot">
+        <button type="button" class="btn btn--secondary btn--full" data-open="login">
+          🔐 Ya tengo cuenta
+        </button>
+      </footer>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main id="inicio">
+    <!-- HERO -->
+    <section class="hero" aria-label="Presentación de Erizopet">
+      <div class="hero__bg" aria-hidden="true"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <div class="chip">
+            <span class="chip__dot" aria-hidden="true"></span>
+            Tienda online de 🦔 erizo pigmeo africano + accesorios
+          </div>
+
+          <h1 class="hero__title">
+            Erizos pigmeo africano,<br />
+            <span class="text-accent">listos para tu hogar</span>
+          </h1>
+
+          <p class="hero__subtitle">
+            En <strong>Erizopet</strong> elige el color que más te enamore
+            (Albino, Chocolate, Sal y Pimienta, etc.) y arma tu pack:
+            ruedas, comida, hábitat, refugios y más.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary btn--lg" href="#tienda">
+              Ver la tienda <span aria-hidden="true">🛒</span>
+            </a>
+            <button class="btn btn--secondary btn--lg" type="button" data-scroll="#colores">
+              Colores disponibles <span aria-hidden="true">🎨</span>
+            </button>
+          </div>
+
+          <div class="hero__metrics" aria-label="Datos destacados">
+            <div class="metric">
+              <div class="metric__value" data-count="24">0</div>
+              <div class="metric__label">kits de inicio</div>
+            </div>
+            <div class="metric">
+              <div class="metric__value" data-count="7">0</div>
+              <div class="metric__label">variedades de color</div>
+            </div>
+            <div class="metric">
+              <div class="metric__value" data-count="48">0</div>
+              <div class="metric__label">tips y guías</div>
+            </div>
+          </div>
+
+          <div class="hero__trust" role="list" aria-label="Beneficios">
+            <div class="trust-item" role="listitem">
+              <span class="trust-item__icon" aria-hidden="true">🌡️</span>
+              Guía de adaptación
+            </div>
+            <div class="trust-item" role="listitem">
+              <span class="trust-item__icon" aria-hidden="true">🧺</span>
+              Accesorios esenciales
+            </div>
+            <div class="trust-item" role="listitem">
+              <span class="trust-item__icon" aria-hidden="true">✨</span>
+              Packs recomendados
+            </div>
+          </div>
+        </div>
+
+        <figure class="hero__media reveal">
+          <div class="media-card">
+            <div class="media-card__glow" aria-hidden="true"></div>
+            <img
+              class="media-card__img"
+              src="https://source.unsplash.com/featured/?african%20pygmy%20hedgehog"
+              alt="Erizo pigmeo africano (imagen ilustrativa desde CDN)"
+              loading="eager"
+            />
+            <figcaption class="media-card__caption">
+              🦔 Cuidados + hogar + accesorios, todo en un solo lugar
+            </figcaption>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION: TIENDA -->
+    <section id="tienda" class="section section--products" aria-label="Tienda">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">🛍️ Paquetes recomendados</h2>
+          <p class="section__subtitle">
+            Arma tu primer hogar para tu erizo pigmeo africano sin adivinar.
+          </p>
+        </header>
+
+        <div class="grid grid--3">
+          <article class="card reveal">
+            <div class="card__top">
+              <img
+                class="card__img"
+                src="https://source.unsplash.com/featured/?pet%20wheel"
+                alt="Rueda para mascota (imagen ilustrativa desde CDN)"
+                loading="lazy"
+              />
+              <div class="card__badge">⭐ Nuevo</div>
+            </div>
+
+            <h3 class="card__title">Kit Inicio “Hogar Seguro”</h3>
+            <p class="card__text">Refugio + guía + comida base para empezar con calma.</p>
+
+            <ul class="list">
+              <li>Hábitat recomendado</li>
+              <li>Rutina de adaptación</li>
+              <li>Checklist de bienestar</li>
+            </ul>
+
+            <div class="card__bottom">
+              <div class="price" aria-label="Precio desde">
+                <span class="price__from">Desde</span>
+                <strong class="price__value">$699 MXN</strong>
+              </div>
+              <button class="btn btn--secondary" type="button">Elegir</button>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <img
+                class="card__img"
+                src="https://source.unsplash.com/featured/?hedgehog%20food"
+                alt="Comida para mascotas (imagen ilustrativa desde CDN)"
+                loading="lazy"
+              />
+              <div class="card__badge card__badge--alt">Más vendido</div>
+            </div>
+
+            <h3 class="card__title">Paquete “Rueda + Comida Premium”</h3>
+            <p class="card__text">Movimiento seguro + nutrición pensada por etapas.</p>
+
+            <ul class="list">
+              <li>Rueda estable</li>
+              <li>Comida por rutina</li>
+              <li>Consejos de higiene</li>
+            </ul>
+
+            <div class="card__bottom">
+              <div class="price">
+                <span class="price__from">Desde</span>
+                <strong class="price__value">$1,199 MXN</strong>
+              </div>
+              <button class="btn btn--secondary" type="button">Elegir</button>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <img
+                class="card__img"
+                src="https://source.unsplash.com/featured/?terrarium%20pet"
+                alt="Terrario/hábitat para mascota (imagen ilustrativa desde CDN)"
+                loading="lazy"
+              />
+              <div class="card__badge card__badge--soft">Premium</div>
+            </div>
+
+            <h3 class="card__title">Kit Completo “Erizopet Pro”</h3>
+            <p class="card__text">Accesorios esenciales + guías avanzadas para tu hogar.</p>
+
+            <ul class="list">
+              <li>Hábitat y refugio</li>
+              <li>Enriquecimiento diario</li>
+              <li>Plan por etapas</li>
+            </ul>
+
+            <div class="card__bottom">
+              <div class="price">
+                <span class="price__from">Desde</span>
+                <strong class="price__value">$1,599 MXN</strong>
+              </div>
+              <button class="btn btn--secondary" type="button">Elegir</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: COLORES -->
+    <section id="colores" class="section section--colors" aria-label="Colores disponibles">
+      <div class="container">
+        <header class="section__header reveal">
+          <h2 class="section__title">🎨 Colores de erizo pigmeo africano</h2>
+          <p class="section__subtitle">
+            Albino, chocolate, sal y pimienta y más — elige el tono de tu futura mejor compa.
+          </p>
+        </header>
+
+        <div class="grid grid--4">
+          <!-- NOTA: imágenes ilustrativas desde CDN con búsqueda por etiquetas -->
+          <article class="mini-card reveal">
+            <img class="mini-card__img" src="https://source.unsplash.com/featured/?albino%20hedgehog" alt="Erizo albino (imagen ilustrativa desde CDN)" loading="lazy" />
+            <div class="mini-card__body">
+              <h3 class="mini-card__title">Albino</h3>
+              <p class="mini-card__text">Suave, brillante y muy fotogénico.</p>
+            </div>
+          </article>
+
+          <article class="mini-card reveal">
+            <img class="mini-card__img" src="https://source.unsplash.com/featured/?chocolate%20hedgehog" alt="Erizo chocolate (imagen ilustrativa desde CDN)" loading="lazy" />
+            <div class="mini-card__body">
+              <h3 class="mini-card__title">Chocolate</h3>
+              <p class="mini-card__text">Tonos cálidos y elegantes.</p>
+            </div>
+          </article>
+
+          <article class="mini-card reveal">
+            <img class="mini-card__img" src="https://source.unsplash.com/featured/?salt%20and%20pepper%20hedgehog" alt="Erizo sal y pimienta (imagen ilustrativa desde CDN)" loading="lazy" />
+            <div class="mini-card__body">
+              <h3 class="mini-card__title">Sal y pimienta</h3>
+              <p class="mini-card__text">Contraste marcado y hermoso.</p>
+            </div>
+          </article>
+
+          <article class="mini-card reveal">
+            <img class="mini-card__img" src="https://source.unsplash.com/featured/?cinnamon%20hedgehog" alt="Erizo canela (imagen ilustrativa desde CDN)" loading="lazy" />
+            <div class="mini-card__body">
+              <h3 class="mini-card__title">Canela</h3>
+              <p class="mini-card__text">Dulce y distinto, perfecto para coleccionar.</p>
+            </div>
+          </article>
+
+          <article class="mini-card reveal">
+            <img class="mini-card__img" src="https://source.unsplash.com/featured/?piebald%20hedgehog" alt="Erizo piebald (imagen ilustrativa desde CDN)" loading="lazy" />
+            <div class="mini-card__body">
+              <h3 class="mini-card__title">Piebald</h3>
+              <p class="mini-card__text">Patrones únicos y súper tiernos.</p>
+            </div>
+          </article>
+
+          <article class="mini-card reveal">
+            <img class="mini-card__img" src="https://source.unsplash.com/featured/?black%20hedgehog" alt="Erizo negro (imagen ilustrativa desde CDN)" loading="lazy" />
+            <div class="mini-card__body">
+              <h3 class="mini-card__title">Negro</h3>
+              <p class="mini-card__text">Minimalista, fuerte y elegante.</p>
+            </div>
+          </article>
+
+          <article class="mini-card reveal">
+            <img class="mini-card__img" src="https://source.unsplash.com/featured/?spotted%20hedgehog" alt="Erizo moteado (imagen ilustrativa desde CDN)" loading="lazy" />
+            <div class="mini-card__body">
+              <h3 class="mini-card__title">Moteado</h3>
+              <p class="mini-card__text">Detalle fino para amantes de texturas.</p>
+            </div>
+          </article>
+
+          <article class="mini-card reveal">
+            <img class="mini-card__img" src="https://source.unsplash.com/featured/?african%20hedgehog" alt="Erizo pigmeo africano (imagen ilustrativa desde CDN)" loading="lazy" />
+            <div class="mini-card__body">
+              <h3 class="mini-card__title">Variado</h3>
+              <p class="mini-card__text">Tonos que cambian con su etapa.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ACCESORIOS con aside -->
+    <section id="accesorios" class="section section--accessories" aria-label="Accesorios">
+      <div class="container guide-layout">
+        <div class="guide-main">
+          <header class="section__header reveal">
+            <h2 class="section__title">🧩 Accesorios esenciales</h2>
+            <p class="section__subtitle">
+              Ruedas, comida, hábitat y refugios — todo pensado para el bienestar del erizo pigmeo africano.
+            </p>
+          </header>
+
+          <div class="grid grid--3">
+            <article class="card card--image reveal">
+              <img class="card__topImg" src="https://source.unsplash.com/featured/?hedgehog%20wheel" alt="Rueda para erizo (imagen ilustrativa desde CDN)" loading="lazy" />
+              <div class="card__pad">
+                <h3 class="card__title">Ruedas silenciosas</h3>
+                <p class="card__text">Agarre seguro y menos ruido nocturno.</p>
+                <button class="btn btn--secondary" type="button">Ver ruedas</button>
+              </div>
+            </article>
+
+            <article class="card card--image reveal">
+              <img class="card__topImg" src="https://source.unsplash.com/featured/?hedgehog%20bowl%20food" alt="Comida para erizo (imagen ilustrativa desde CDN)" loading="lazy" />
+              <div class="card__pad">
+                <h3 class="card__title">Comida & snacks</h3>
+                <p class="card__text">Nutrición por etapas y rutinas claras.</p>
+                <button class="btn btn--secondary" type="button">Ver comida</button>
+              </div>
+            </article>
+
+            <article class="card card--image reveal">
+              <img class="card__topImg" src="https://source.unsplash.com/featured/?pet%20cage%20habitat" alt="Hábitat/jaula para mascota (imagen ilustrativa desde CDN)" loading="lazy" />
+              <div class="card__pad">
+                <h3 class="card__title">Hábitat & refugios</h3>
+                <p class="card__text">Temperatura estable + zona de descanso.</p>
+                <button class="btn btn--secondary" type="button">Ver hábitat</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="divider reveal" aria-hidden="true"></div>
+
+          <article class="reveal">
+            <h3 class="subheading">Guía rápida 🧠</h3>
+            <div class="bullets">
+              <div class="bullet">
+                <span class="bullet__mark" aria-hidden="true">✓</span>
+                <span><strong>Temperatura:</strong> estable y sin cambios bruscos.</span>
+              </div>
+              <div class="bullet">
+                <span class="bullet__mark" aria-hidden="true">✓</span>
+                <span><strong>Rutina:</strong> alimento + cuidado por etapa.</span>
+              </div>
+              <div class="bullet">
+                <span class="bullet__mark" aria-hidden="true">✓</span>
+                <span><strong>Enriquecimiento:</strong> juega diario (poco pero constante).</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <aside class="guide-aside" aria-label="Panel lateral">
+          <div class="aside-card reveal">
+            <div class="aside-card__head">
+              <h3 class="aside-card__title" id="faq">Preguntas frecuentes</h3>
+              <button class="aside-card__toggle" type="button" data-toggle="faq" aria-expanded="false" aria-controls="faqBox">
+                <span aria-hidden="true">▾</span> Ver
+              </button>
+            </div>
+
+            <div class="faq" id="faqBox" data-faq hidden>
+              <details class="faq__item">
+                <summary>¿Qué necesito para su primer hogar?</summary>
+                <p>Hábitat, refugio, control de temperatura, comida por etapas y guía de adaptación.</p>
+              </details>
+              <details class="faq__item">
+                <summary>¿Cada cuánto debo revisar su rutina?</summary>
+                <p>Revisión semanal. Ajusta según comportamiento: sin prisa, con observación.</p>
+              </details>
+              <details class="faq__item">
+                <summary>¿Venden accesorios por separado?</summary>
+                <p>Sí. Ruedas, comida y hábitat están disponibles en packs y productos.</p>
+              </details>
+            </div>
+
+            <button class="btn btn--secondary btn--full" type="button" data-scroll="#tienda">
+              Volver a tienda <span aria-hidden="true">↩</span>
+            </button>
+          </div>
+
+          <div class="aside-card aside-card--shadow reveal" aria-label="Atajos">
+            <h3 class="aside-card__title">Atajos</h3>
+            <nav aria-label="Enlaces rápidos">
+              <a class="quick-link" href="#colores"><span aria-hidden="true">🎨</span> Colores</a>
+              <a class="quick-link" href="#accesorios"><span aria-hidden="true">🧩</span> Accesorios</a>
+              <a class="quick-link" href="#inicio"><span aria-hidden="true">⬆️</span> Inicio</a>
+            </nav>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER semántico -->
+  <footer class="footer" aria-label="Pie de página">
+    <div class="container footer__grid">
+      <section class="footer__brand">
+        <div class="footer__logo">Erizopet</div>
+        <p class="footer__text">🦔 Tienda online de erizo pigmeo africano y accesorios esenciales.</p>
+      </section>
+
+      <section class="footer__cols" aria-label="Enlaces del pie">
+        <div class="footer__col">
+          <h4 class="footer__title">Explorar</h4>
+          <a class="footer__link" href="#tienda">Tienda</a>
+          <a class="footer__link" href="#colores">Colores</a>
+          <a class="footer__link" href="#accesorios">Accesorios</a>
+          <a class="footer__link" href="#faq">FAQ</a>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__title">Acciones</h4>
+          <button class="footer__link btnlike" type="button" data-open="login">🔐 Iniciar sesión</button>
+          <button class="footer__link btnlike" type="button" data-open="register">📝 Registrarse</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer__bottom container">
+      <span>© <span id="year"></span> Erizopet</span>
+      <span class="footer__tiny">Hecho con cariño para erizos 🦔✨</span>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" role="status" aria-live="polite" aria-hidden="true" id="toast"></div>
+
+  <!-- scripts -->
+   <script src="/static/js/bootstrap.bundle.min.js"></script>
+   <script src="/static/js/all.js"></script>
+  <script src="/static/js/script.js"></script>
+</body>
+</html>
