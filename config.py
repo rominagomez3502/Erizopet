@@ -5,8 +5,8 @@ class Config:
 class DevelopmentConfig(Config):
     MYSQL_HOST = 'localhost'
     MYSQL_USER = 'root'
-    MYSQL_PASSWORD ='mysql'
-    MYSQL_DATEBASE = 'erizopet'
+    MYSQL_PASSWORD = 'mysql'
+    MYSQL_DB = 'erizopet'     
 
 config = {
     'development': DevelopmentConfig
