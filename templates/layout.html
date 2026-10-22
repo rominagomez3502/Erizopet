@@ -38,21 +38,21 @@
       </button>
     </header>
 
-    <form class="modal__form" id="formLogin" autocomplete="on">
+    <form action="{{url_for('signin')}}" method="post" class="modal__form"  autocomplete="on">
       <label class="field">
         <span class="field__label">Email</span>
         <span class="field__icon" aria-hidden="true">📧</span>
-        <input type="email" name="email" required placeholder="tucorreo@ejemplo.com" autocomplete="email" />
+        <input type="email" name="correo" required placeholder="tucorreo@ejemplo.com" autocomplete="email" />
       </label>
 
       <label class="field">
         <span class="field__label">Contraseña</span>
         <span class="field__icon" aria-hidden="true">🔑</span>
-        <input type="password" name="password" required placeholder="••••••••" autocomplete="current-password" />
+        <input type="password" name="clave" required placeholder="••••••••" autocomplete="current-password" />
       </label>
 
       <button class="btn btn--primary btn--full" type="submit">
-        Entrar <span aria-hidden="true">→</span>
+        Entrar <span aria-hidden="true">→</span>  
       </button>
 
       <p class="modal__hint">

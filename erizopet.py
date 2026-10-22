@@ -4,7 +4,7 @@ from config import config
 from werkzeug.security import generate_password_hash
 from models.entities.User import User
 from models.ModelUser import ModelUser
-from flask_login import LoginManager, login_user, logout_user, login_required
+from flask_login import LoginManager, login_user, logout_user, login_required , current_user
 
 erizopetApp = Flask(__name__)
 erizopetApp.config.from_object(config['development'])
@@ -43,9 +43,9 @@ def signin():
                   login_user(usuarioAutenticado)
                   if usuarioAutenticado.clave:
                         if usuarioAutenticado.perfil == 'A':
-                              return render_template('admin.html')
+                              return redirect(url_for('home.admin'))
                         else:
-                              return render_template('user.html')
+                               return redirect(url_for('user.admin'))
                   else: 
                         flash('Contraseña Incorrecta')
                         redirect(url_for('home'))
@@ -54,6 +54,29 @@ def signin():
                   redirect(url_for('home'))
       else:
             render_template('home.html')
+
+@erizopetApp.route('/signout',methods=['GET','POST'])
+def signout():
+      logout_user()
+      return redirect(url_for('home'))
+
+@erizopetApp.route('/home_admin', methods =['GET', 'POST'])
+def home_admin():
+      return render_template('admin.html')
+
+@erizopetApp.route('/home_user', methods=['GET', 'POST'])
+def home_user():
+      return render_template('user.html')
+
+
+
+
+
+
+
+
+
+
 
 
 
