@@ -42,7 +42,7 @@
             Operaciones
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="{{url_for('sUsuario')}}">usuarios</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -68,28 +68,17 @@
         </a>
 
         <!-- Botones con iconos para modales -->
-        <a
-          class="btn btn--ghost"
-          type="button"
-          data-open="login"
-          aria-haspopup="dialog"
-          aria-controls="modalLogin"
-        >
-          <span class="btn__icon" aria-hidden="true">🔐</span>
-          {{ current_user.nombre}}
-      </a>
+       <span class="btn btn--ghost">
+       {{ current_user.nombre }}
+    </span>
 
         <a
-          class="btn btn--primary"
-          type="button"
-          data-open="register"
-          aria-haspopup="dialog"
-          aria-controls="modalRegister"
-        >
+          class="btn btn--ghost"
+          href="{{ url_for('signout') }}"
+      >
           <span class="btn__icon" aria-hidden="true">📝</span>
-        Cerrar sesion
-          
-    </a>
+          Cerrar sesión
+      </a>
 
         <!-- Menú móvil -->
         <button class="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" data-hamburger>

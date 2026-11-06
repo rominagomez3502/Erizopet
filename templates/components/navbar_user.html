@@ -56,28 +56,17 @@
         </a>
 
         <!-- Botones con iconos para modales -->
-        <button
-          class="btn btn--ghost"
-          type="button"
-          data-open="login"
-          aria-haspopup="dialog"
-          aria-controls="modalLogin"
-        >
-          <span class="btn__icon" aria-hidden="true">🔐</span>
-          {{ current_user.nombre }}
-        </button>
+        <span class="btn btn--ghost">
+    {{ current_user.nombre }}
+    </span>
 
-        <button
-          class="btn btn--primary"
-          type="button"
-          data-open="register"
-          aria-haspopup="dialog"
-          aria-controls="modalRegister"
-        >
-          <span class="btn__icon" aria-hidden="true">📝</span>
-          Cerrar Sesión 
-        </button>
-
+    <a
+        class="btn btn--ghost"
+        href="{{ url_for('signout') }}"
+    >
+        <span class="btn__icon" aria-hidden="true">📝</span>
+        Cerrar sesión
+    </a>
         <!-- Menú móvil -->
         <button class="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" data-hamburger>
           <span aria-hidden="true">☰</span>
