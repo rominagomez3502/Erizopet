@@ -11,4 +11,4 @@ class User(UserMixin):
         self.perfil = perfil
     @classmethod    
     def validarClave(self, claveCifrada, clave):
-        return check_password_hash(self.claveCifrada, clave)
+        return check_password_hash(claveCifrada, clave)
