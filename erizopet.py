@@ -36,26 +36,39 @@ def signup():
       
 @erizopetApp.route('/signin', methods=['GET', 'POST'])
 def signin():
-      if request.method == 'POST':
-            usuario = User(0, None, request.form['correo'], request.form['clave'], None)
-            usuarioAutenticado = ModelUser.signin(db, usuario)
-            if usuarioAutenticado is not None: 
-                  login_user(usuarioAutenticado)
-                  if usuarioAutenticado.clave:
-                        if usuarioAutenticado.perfil == 'A':
-                              return redirect(url_for('home.admin'))
-                        else:
-                               return redirect(url_for('user.admin'))
-                  else: 
-                        flash('Contraseña Incorrecta')
-                        redirect(url_for('home'))
-            else: 
-                  flash('Usuario Inexistente')
-                  redirect(url_for('home'))
-      else:
-            render_template('home.html')
 
-@erizopetApp.route('/signout',methods=['GET','POST'])
+    if request.method == 'POST':
+
+        usuario = User(
+            0,
+            None,
+            request.form['correo'],
+            request.form['clave'],
+            None
+        )
+
+        usuarioAutenticado = ModelUser.signin(db, usuario)
+
+        if usuarioAutenticado is not None:
+
+            login_user(usuarioAutenticado)
+
+            if usuarioAutenticado.clave:
+
+                if usuarioAutenticado.perfil == 'A':
+                    return redirect(url_for('home_admin'))
+                else:
+                    return redirect(url_for('home_user'))
+
+            flash('Contraseña Incorrecta')
+            return redirect(url_for('home'))
+
+        flash('Usuario Inexistente')
+        return redirect(url_for('home'))
+
+    return render_template('home.html')
+
+@erizopetApp.route('/signout',methods =['GET','POST'])
 def signout():
       logout_user()
       return redirect(url_for('home'))
@@ -69,18 +82,10 @@ def home_user():
       return render_template('user.html')
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+@erizopetApp.route('/sUsuario', methods=['GET', 'POST'])
+@login_required
+def sUsuario():
+      return render_template('users.html')
 
 
 
