@@ -1,6 +1,35 @@
 {% extends "layout.html" %}
 {% block titulo %}Erizopet — Tienda Online de Erizos Pigmeo Africano{% endblock %}
-{% block contenido %}
+{% block contenido %} 
+<div class="container">
+ <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">nombre</th>
+      <th scope="col">correo</th>
+      <th scope="col">contraseña</th>
+      <th scope="col">perfil</th>
+      <th scope="col" colspan="2">boton agregar</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for u in usuarios %}
+    <tr>
+      <th scope="row">{{ u[0]}}</th>
+      <td>{{ u[1]}}</td>
+      <td>{{ u[2]}}</td>
+      <td>{{ u[3] | truncate(20)}}</td>
+      <td>{{ u[4]}}</td>
+      <td>boton editar</td>
+      <td>boton eliminar</td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table> 
+</div>
+
 <main id="main">
   <!-- HERO -->
   <section class="hero" aria-label="Presentación de Erizopet">
